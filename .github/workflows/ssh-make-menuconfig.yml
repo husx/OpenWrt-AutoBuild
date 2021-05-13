@@ -27,6 +27,7 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
+  UPLOAD_CONF: true
   TZ: Asia/Shanghai
 
 jobs:
@@ -86,10 +87,11 @@ jobs:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
-    - name: Upload .config
+    - name: Upload CONF
       uses: actions/upload-artifact@main
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_CONF == 'true'
       with:
-        name: OpenWrt_Config
+        name: OpenWrt_CONF
         path: openwrt/.config
 
     - name: Delete workflow runs

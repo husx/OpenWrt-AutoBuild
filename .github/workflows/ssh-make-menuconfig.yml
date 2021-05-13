@@ -27,7 +27,7 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  UPLOAD_CONF: true
+#  UPLOAD_CONF: true
   TZ: Asia/Shanghai
 
 jobs:
@@ -89,7 +89,7 @@ jobs:
 
     - name: Upload CONF
       uses: actions/upload-artifact@main
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_CONF == 'true'
+#      if: steps.compile.outputs.status == 'success' && env.UPLOAD_CONF == 'true'
       with:
         name: OpenWrt_CONF
         path: openwrt/.config

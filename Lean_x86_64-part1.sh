@@ -14,6 +14,16 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-#sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
-#sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
-svn co https://github.com/garypang13/openwrt-packages/trunk/luci-app-socat package/luci-app-socat
+sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
+#passwall
+sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+
+svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat
+svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
+git clone https://github.com/Hyy2001X/luci-app-onliner.git package/luci-app-onliner
+git clone https://github.com/Hyy2001X/luci-app-shutdown.git package/luci-app-shutdown
+git clone https://github.com/Hyy2001X/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
